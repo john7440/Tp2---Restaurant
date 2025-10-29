@@ -67,19 +67,56 @@ public class Menus {
 	        	case 6:
 	        		return "Aucun";
 	        	default:
-	        		System.out.println("Je n'ai pas saisi votre demande. Aucune sélectionner par défaut.");
+	        		System.out.println("Je n'ai pas saisi votre demande. Aucun sélectionner par défaut.");
 	        		return "Aucun";
 	        		
 	        }
 		}
+	
+	public static String accompagnementsChoice() {
+			
+			Scanner scan = new Scanner(System.in);
+			
+			System.out.println("Que souhaitez vous comme accompagnements :");
+	        System.out.println("1. Riz");
+	        System.out.println("2. Pâtes");
+	        System.out.println("3. Frites");
+	        System.out.println("4. Légumes");
+	        System.out.println("5. Aucun");
+	        
+	        int choice = scan.nextInt();
+	        scan.nextLine();
+	        
+	        
+	        switch (choice) {
+	        	
+	        	case 1:
+	        		return "Riz";
+	        	case 2:
+	        		return "Pâtes";
+	        	case 3:
+	        		return "Frites";
+	        	case 4:
+	        		return "Légumes";
+	        	case 5:
+	        		return "Aucun";
+	        	default:
+	        		System.out.println("Je n'ai pas saisi votre choix. Aucune sélectionner par défaut.");
+	        		return "Aucun";
+	        		
+	        }
+		}
+		
 
 	public static void main(String[] args) {
 
 
 		String entry = entryChoice();
 		String plate = plateChoice();
+		String accompagnements = accompagnementsChoice();
 		System.out.println("Vous avez choisi en entrée: " + entry);
 		System.out.println("Vous avez choisi comme plat: " + plate);
+		System.out.println("Vous avez choisi comme accompagenement: " + accompagnements);
 
 	}
 }
