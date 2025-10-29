@@ -140,6 +140,42 @@ public class Menus {
         		
         }
 	}
+	
+	public static String dessertChoice() {
+			
+			Scanner scan = new Scanner(System.in);
+			
+			System.out.println("Que souhaitez vous comme desserts :");
+	        System.out.println("1. Tarte Maison");
+	        System.out.println("2. Mousse au Chocolat");
+	        System.out.println("3. Tiramisu");
+	        System.out.println("4. Glaçes");
+	        System.out.println("5. Aucun");
+	        
+	        int choice = scan.nextInt();
+	        scan.nextLine();
+	        scan.close();
+	        
+	        switch (choice) {
+	        	
+	        	case 1:
+	        		return "Tarte Maison";
+	        	case 2:
+	        		return "Mousse au Chocolat";
+	        	case 3:
+	        		return "Tiramisu";
+	        	case 4:
+	        		return "Glaçes";
+	        	case 5:
+	        		return "Aucun";
+	        	default:
+	        		System.out.println("Je n'ai pas saisi votre choix. Aucune sélectionner par défaut.");
+	        		return "Aucun";
+	        		
+	        	
+	        }
+	        
+		}
 		
 
 	public static void main(String[] args) {
@@ -149,10 +185,12 @@ public class Menus {
 		String plate = plateChoice();
 		String accompagnements = accompagnementsChoice();
 		String drink = drinkChoice();
+		String dessert = dessertChoice();
 		System.out.println("Vous avez choisi en entrée: " + entry);
 		System.out.println("Vous avez choisi comme plat: " + plate);
 		System.out.println("Vous avez choisi comme accompagenement: " + accompagnements);
 		System.out.println("Vous avez choisi comme boisson: " + drink);
+		System.out.println("Vous avez choisi comme dessert: " + dessert);
 
 	}
 }
