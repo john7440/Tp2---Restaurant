@@ -106,6 +106,40 @@ public class Menus {
 	        		
 	        }
 		}
+	
+	public static String drinkChoice() {
+		
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Que souhaitez vous comme boissons :");
+        System.out.println("1. Eau plate");
+        System.out.println("2. Eau Gazeuse");
+        System.out.println("3. Soda");
+        System.out.println("4. Vin");
+        System.out.println("5. Aucune");
+        
+        int choice = scan.nextInt();
+        scan.nextLine();
+        
+        
+        switch (choice) {
+        	
+        	case 1:
+        		return "Eau plate";
+        	case 2:
+        		return "Eau Gazeuse";
+        	case 3:
+        		return "Soda";
+        	case 4:
+        		return "Vin";
+        	case 5:
+        		return "Aucune";
+        	default:
+        		System.out.println("Je n'ai pas saisi votre choix. Aucune sélectionner par défaut.");
+        		return "Aucune";
+        		
+        }
+	}
 		
 
 	public static void main(String[] args) {
@@ -114,9 +148,11 @@ public class Menus {
 		String entry = entryChoice();
 		String plate = plateChoice();
 		String accompagnements = accompagnementsChoice();
+		String drink = drinkChoice();
 		System.out.println("Vous avez choisi en entrée: " + entry);
 		System.out.println("Vous avez choisi comme plat: " + plate);
 		System.out.println("Vous avez choisi comme accompagenement: " + accompagnements);
+		System.out.println("Vous avez choisi comme boisson: " + drink);
 
 	}
 }
