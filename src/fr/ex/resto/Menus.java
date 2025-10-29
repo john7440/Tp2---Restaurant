@@ -4,9 +4,11 @@ import java.util.Scanner;
 
 public class Menus {
 	
+	private static final Scanner scan = new Scanner(System.in);
+	
 	public static String entryChoice() {
 		
-		Scanner scan = new Scanner(System.in);
+		
 		
 		System.out.println("Que souhaitez vous comme entrée :");
         System.out.println("1. Salade");
@@ -37,7 +39,6 @@ public class Menus {
 	
 	public static String plateChoice() {
 			
-			Scanner scan = new Scanner(System.in);
 			
 			System.out.println("Que souhaitez vous comme plats: ");
 	        System.out.println("1. Poulet");
@@ -75,7 +76,6 @@ public class Menus {
 	
 	public static String accompagnementsChoice() {
 			
-			Scanner scan = new Scanner(System.in);
 			
 			System.out.println("Que souhaitez vous comme accompagnements :");
 	        System.out.println("1. Riz");
@@ -109,7 +109,6 @@ public class Menus {
 	
 	public static String drinkChoice() {
 		
-		Scanner scan = new Scanner(System.in);
 		
 		System.out.println("Que souhaitez vous comme boissons :");
         System.out.println("1. Eau plate");
@@ -143,7 +142,6 @@ public class Menus {
 	
 	public static String dessertChoice() {
 			
-			Scanner scan = new Scanner(System.in);
 			
 			System.out.println("Que souhaitez vous comme desserts :");
 	        System.out.println("1. Tarte Maison");
@@ -154,7 +152,7 @@ public class Menus {
 	        
 	        int choice = scan.nextInt();
 	        scan.nextLine();
-	        scan.close();
+	       
 	        
 	        switch (choice) {
 	        	
