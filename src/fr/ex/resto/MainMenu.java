@@ -17,7 +17,7 @@ public class MainMenu {
 		List<String> listOrders = new ArrayList<>();
 		
 		for (int i = 1; i < choice +1; i++) {
-			System.out.println("\nMenu #" + i);
+			System.out.println("\n============Menu #" + i +"============");
 			
 			String entry = Menus.entryChoice();
 			String mainCourse = Menus.mainCourseChoice();
@@ -25,7 +25,7 @@ public class MainMenu {
 			String drink = Menus.drinkChoice();
 			String dessert = Menus.dessertChoice();
 			
-			String order = "Menu #" + i + " :\n"
+			String order = "------Menu #" + i + "------" + "\n"
                     + "- Entrée : " + entry + "\n"
                     + "- Plat : " + mainCourse + "\n"
                     + "- Accompagnement : " + side + "\n"
@@ -34,6 +34,11 @@ public class MainMenu {
 
             listOrders.add(order);
 		}
+		
+		System.out.println("\nRécapitulatif des commandes: ");
+		for (String order : listOrders) {
+            System.out.println("\n" + order);
+        }
 		
 		scan.close();
 		
