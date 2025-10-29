@@ -6,38 +6,31 @@ public class Menus {
 	
 	private static final Scanner scan = new Scanner(System.in);
 	
-	public static String entryChoice() {
+	public static String getChoice(String question, String[] options) {
+		System.out.println(question);
+		for (int i = 0; i < options.length; i++) {
+			System.out.println((i + 1) + "." + options[i] );
+		}
 		
+		int choice = scan.nextInt();
+		scan.nextLine();
 		
-		
-		System.out.println("Que souhaitez vous comme entrée :");
-        System.out.println("1. Salade");
-        System.out.println("2. Soupe");
-        System.out.println("3. Quiche");
-        System.out.println("4. Aucune");
-        
-        int choice = scan.nextInt();
-        scan.nextLine();
-        
-        
-        switch (choice) {
-        	
-        	case 1:
-        		return "Salade";
-        	case 2:
-        		return "Soupe";
-        	case 3:
-        		return "Quiche";
-        	case 4:
-        		return "Aucune";
-        	default:
-        		System.out.println("Je n'ai pas saisi votre choix comme entrée. Aucune sélectionner par défaut.");
-        		return "Aucune";
-        		
-        }
+		if (choice >= 1 && choice <= options.length) {
+			return options[choice -1];
+		} else {
+			System.out.println("Je n'ai pas saisi votre demande! Aucun(e) comme sélection par défaut!");
+	        return "Aucun(e)";
+		}
 	}
 	
-	public static String plateChoice() {
+	
+	public static String entryChoice() {
+	    return getChoice("Que souhaitez-vous comme entrée :", new String[] {
+	        "Salade", "Soupe", "Quiche", "Aucune"
+	    });
+	}
+	
+	public static String mainCourseChoice() {
 			
 			
 			System.out.println("Que souhaitez vous comme plats: ");
@@ -74,7 +67,7 @@ public class Menus {
 	        }
 		}
 	
-	public static String accompagnementsChoice() {
+	public static String sideChoice() {
 			
 			
 			System.out.println("Que souhaitez vous comme accompagnements :");
@@ -180,8 +173,8 @@ public class Menus {
 
 
 		String entry = entryChoice();
-		String plate = plateChoice();
-		String accompagnements = accompagnementsChoice();
+		String plate = mainCourseChoice();
+		String accompagnements = sideChoice();
 		String drink = drinkChoice();
 		String dessert = dessertChoice();
 		System.out.println("Vous avez choisi en entrée: " + entry);
