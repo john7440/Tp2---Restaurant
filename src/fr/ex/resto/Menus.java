@@ -30,143 +30,33 @@ public class Menus {
 	    });
 	}
 	
+	
 	public static String mainCourseChoice() {
-			
-			
-			System.out.println("Que souhaitez vous comme plats: ");
-	        System.out.println("1. Poulet");
-	        System.out.println("2. Boeuf");
-	        System.out.println("3. Poisson");
-	        System.out.println("4. Végétarien");
-	        System.out.println("5. Végan");
-	        System.out.println("6. Aucun");
-	        
-	        
-	        int choice = scan.nextInt();
-	        scan.nextLine();
-	        
-	        
-	        switch (choice) {
-	        	
-	        	case 1:
-	        		return "Poulet";
-	        	case 2:
-	        		return "Boeuf";
-	        	case 3:
-	        		return "Poisson";
-	        	case 4:
-	        		return "Végétarien";
-	        	case 5:
-	        		return "Végan";
-	        	case 6:
-	        		return "Aucun";
-	        	default:
-	        		System.out.println("Je n'ai pas saisi votre demande. Aucun sélectionner par défaut.");
-	        		return "Aucun";
-	        		
-	        }
-		}
+	    return getChoice("Que souhaitez-vous comme plat :", new String[] {
+	        "Poulet", "Boeuf", "Poisson", "Végétarien", "Végan", "Aucun"
+	    });
+	}
+	
 	
 	public static String sideChoice() {
-			
-			
-			System.out.println("Que souhaitez vous comme accompagnements :");
-	        System.out.println("1. Riz");
-	        System.out.println("2. Pâtes");
-	        System.out.println("3. Frites");
-	        System.out.println("4. Légumes");
-	        System.out.println("5. Aucun");
-	        
-	        int choice = scan.nextInt();
-	        scan.nextLine();
-	        
-	        
-	        switch (choice) {
-	        	
-	        	case 1:
-	        		return "Riz";
-	        	case 2:
-	        		return "Pâtes";
-	        	case 3:
-	        		return "Frites";
-	        	case 4:
-	        		return "Légumes";
-	        	case 5:
-	        		return "Aucun";
-	        	default:
-	        		System.out.println("Je n'ai pas saisi votre choix. Aucune sélectionner par défaut.");
-	        		return "Aucun";
-	        		
-	        }
-		}
+	    return getChoice("Que souhaitez-vous comme accompagnements :", new String[] {
+	        "Riz", "Pâtes", "Frites", "Légumes", "Aucun"
+	    });
+	}
 	
 	public static String drinkChoice() {
-		
-		
-		System.out.println("Que souhaitez vous comme boissons :");
-        System.out.println("1. Eau plate");
-        System.out.println("2. Eau Gazeuse");
-        System.out.println("3. Soda");
-        System.out.println("4. Vin");
-        System.out.println("5. Aucune");
-        
-        int choice = scan.nextInt();
-        scan.nextLine();
-        
-        
-        switch (choice) {
-        	
-        	case 1:
-        		return "Eau plate";
-        	case 2:
-        		return "Eau Gazeuse";
-        	case 3:
-        		return "Soda";
-        	case 4:
-        		return "Vin";
-        	case 5:
-        		return "Aucune";
-        	default:
-        		System.out.println("Je n'ai pas saisi votre choix. Aucune sélectionner par défaut.");
-        		return "Aucune";
-        		
-        }
+	    return getChoice("Que souhaitez-vous comme boissons :", new String[] {
+	        "Eau Plate", "Eau Gazeuse", "Soda", "Vin", "Aucune"
+	    });
 	}
 	
 	public static String dessertChoice() {
-			
-			
-			System.out.println("Que souhaitez vous comme desserts :");
-	        System.out.println("1. Tarte Maison");
-	        System.out.println("2. Mousse au Chocolat");
-	        System.out.println("3. Tiramisu");
-	        System.out.println("4. Glaçes");
-	        System.out.println("5. Aucun");
-	        
-	        int choice = scan.nextInt();
-	        scan.nextLine();
-	       
-	        
-	        switch (choice) {
-	        	
-	        	case 1:
-	        		return "Tarte Maison";
-	        	case 2:
-	        		return "Mousse au Chocolat";
-	        	case 3:
-	        		return "Tiramisu";
-	        	case 4:
-	        		return "Glaçes";
-	        	case 5:
-	        		return "Aucun";
-	        	default:
-	        		System.out.println("Je n'ai pas saisi votre choix. Aucune sélectionner par défaut.");
-	        		return "Aucun";
-	        		
-	        	
-	        }
-	        
-		}
+	    return getChoice("Que désirez-vous comme dessert :", new String[] {
+	        "Tarte Maison", "Mousse au chocolat", "Tiramisu", "Glaçes", "Aucun"
+	    });
+	}
+
+	
 		
 
 	public static void main(String[] args) {
