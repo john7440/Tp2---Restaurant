@@ -18,13 +18,14 @@ public class Menus {
 		if (choice >= 1 && choice <= options.length) {
 			return options[choice -1];
 		} else {
-			System.out.println("Je n'ai pas saisi votre demande! Aucun(e) comme sélection par défaut!");
+			System.out.println("Je n'ai pas saisi votre demande pour ! Aucun(e) comme sélection par défaut!\n");
 	        return "Aucun(e)";
 		}
 	}
 	
 	
 	public static String entryChoice() {
+		
 	    return getChoice("Que souhaitez-vous comme entrée :", new String[] {
 	        "Salade", "Soupe", "Quiche", "Aucune"
 	    });
@@ -56,22 +57,4 @@ public class Menus {
 	    });
 	}
 
-	
-		
-
-	public static void main(String[] args) {
-
-
-		String entry = entryChoice();
-		String plate = mainCourseChoice();
-		String accompagnements = sideChoice();
-		String drink = drinkChoice();
-		String dessert = dessertChoice();
-		System.out.println("Vous avez choisi en entrée: " + entry);
-		System.out.println("Vous avez choisi comme plat: " + plate);
-		System.out.println("Vous avez choisi comme accompagenement: " + accompagnements);
-		System.out.println("Vous avez choisi comme boisson: " + drink);
-		System.out.println("Vous avez choisi comme dessert: " + dessert);
-
-	}
 }
