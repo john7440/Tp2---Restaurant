@@ -6,8 +6,6 @@ public class Menus {
 	
 	// We declare a private static Scanner to be shared across all methods in the Menus class
 	private static final Scanner scan = new Scanner(System.in);
-
-	
 	/**
      * Displays a question with a list of options and returns the user's selected choice.
      * If the input is invalid, a default value "Aucun(e)" is returned.
