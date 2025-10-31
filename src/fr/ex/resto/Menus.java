@@ -21,15 +21,26 @@ public class Menus {
 			System.out.println((i + 1) + "." + options[i] );
 		}
 		
-		int choice = scan.nextInt();
-		scan.nextLine();
+		int choice = -1;
+		boolean validInput = false;
 		
-		if (choice >= 1 && choice <= options.length) {
-			return options[choice -1];
-		} else {
-			System.out.println("Je n'ai pas saisi votre demande pour ! Aucun(e) comme sélection par défaut!\n");
-	        return "Aucun(e)";
-		}
+		
+		while (!validInput) {
+		        System.out.print("Votre choix (1 à " + options.length + ") : ");
+		        if (scan.hasNextInt()) {
+		            choice = scan.nextInt();
+		            scan.nextLine(); 
+		            if (choice >= 1 && choice <= options.length) {
+		                validInput = true;
+		            } else {
+		                System.out.println("\nChoix hors limites. Veuillez entrer un nombre entre 1 et " + options.length + ".");
+		            }
+		        } else {
+		            System.out.println("\nEntrée invalide. Veuillez entrer un nombre valide.");
+		            scan.nextLine();
+		        }
+		    }
+		 return options[choice - 1];
 	}
 	
 	
