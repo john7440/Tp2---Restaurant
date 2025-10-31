@@ -22,5 +22,6 @@ fr.ex.resto
 - Prérequis: Java 8 ou supérieur.
 - Compilation et éxécution:
 
+        javac fr/ex/resto/Menus.java
         javac fr/ex/resto/MainMenu.java
         java fr.ex.resto.MainMenu
