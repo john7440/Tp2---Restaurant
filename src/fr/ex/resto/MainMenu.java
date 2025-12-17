@@ -1,10 +1,31 @@
 package fr.ex.resto;
 
 import java.util.Scanner;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainMenu {
+	
+	public static void saveOrder(List<String> listOrders, String filename) {
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))){
+			
+			writer.write("===Récap des Commandes===");
+			
+			for (String order: listOrders) {
+				writer.write(order);
+				writer.newLine();
+				writer.newLine();
+			}
+			
+			System.out.println("\nCommandes sauvegardées dans " + filename);	
+			
+		} catch (IOException e) {
+			System.err.println("Erreur lors de l'écriture du fichier: " + e.getMessage());
+		}
+	}
 
 	public static void main(String[] args) {
 		
@@ -16,10 +37,10 @@ public class MainMenu {
 			int choice = scan.nextInt();
 			scan.nextLine();
 			
-			// Create a list to store all the menu orders
+			// We create a list to store all the menu orders
 			List<String> listOrders = new ArrayList<>();
 			
-			// Loop through the number of menus requested and collect user choices
+			// We loop through the number of menus requested and take user choices
 			for (int i = 1; i < choice +1; i++) {
 				System.out.println("\n============Menu #" + i +"============");
 				
@@ -47,6 +68,9 @@ public class MainMenu {
 			for (String order : listOrders) {
 	            System.out.println("\n" + order);
 	        }
+			
+			//ajout de la sauvergarde
+			saveOrder(listOrders, "order.txt");
 		} else {
 			System.out.println("Je n'ai pas saisi votre demande! Veuillez saisir un nombre entier!");
 		}
