@@ -34,9 +34,13 @@ public class MainMenu {
 	}
 	
 	public static void saveOrder(List<String> listOrders, String filename) {
-		try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))){
+		int orderNumber = getNextOrderNumber(filename);
+		
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true))){
 			
-			writer.write("===Récap de la commande ===\n\n");
+			writer.write("=== Résumé de la commande n°" + orderNumber + " ===");
+			writer.newLine();
+			writer.newLine();
 			
 			for (String order: listOrders) {
 				writer.write(order);
@@ -44,7 +48,11 @@ public class MainMenu {
 				writer.newLine();
 			}
 			
-			System.out.println("\nCommandes sauvegardées dans " + filename);	
+			writer.write("================================");
+			writer.newLine();
+			writer.newLine();
+			
+			System.out.println("\nCommande n°" + orderNumber + " sauvegardée dans " + filename);	
 			
 		} catch (IOException e) {
 			System.err.println("Erreur lors de l'écriture du fichier: " + e.getMessage());
