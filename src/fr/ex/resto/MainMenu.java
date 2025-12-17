@@ -35,7 +35,7 @@ public class MainMenu {
 	
 	public static void saveOrder(List<String> listOrders, String filename) {
 		int orderNumber = getNextOrderNumber(filename);
-		
+		//le true permet d'append
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true))){
 			
 			writer.write("=== Résumé de la commande n°" + orderNumber + " ===");
@@ -48,7 +48,7 @@ public class MainMenu {
 				writer.newLine();
 			}
 			
-			writer.write("================================");
+			writer.write("=================================");
 			writer.newLine();
 			writer.newLine();
 			
@@ -74,7 +74,7 @@ public class MainMenu {
 			
 			// We loop through the number of menus requested and take user choices
 			for (int i = 1; i < choice +1; i++) {
-				System.out.println("\n============Menu #" + i +"============");
+				System.out.println("\n============Menu #" + i +"============\n");
 				
 				// Collect individual choices for each part of the menu
 				String entry = Menus.appetizerChoice();
