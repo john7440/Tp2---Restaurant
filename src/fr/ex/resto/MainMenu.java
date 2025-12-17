@@ -1,7 +1,10 @@
 package fr.ex.resto;
 
 import java.util.Scanner;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,10 +12,31 @@ import java.util.List;
 
 public class MainMenu {
 	
+	public static int getNextOrderNumber(String filename) {
+		int lastOrderNumber = 0;
+		try(BufferedReader reader = new BufferedReader(new FileReader(filename))){
+			String line;
+			while((line = reader.readLine()) != null) {
+				if (line.contains("Résumé de la commande n°")) {
+					String[] parts = line.split("n°");
+					if (parts.length >1) {
+						String numberStr = parts[1].trim().split(" ")[0];
+						lastOrderNumber = Integer.parseInt(numberStr);
+					}
+				}
+			}
+		} catch (FileNotFoundException e) {
+			// sil le fichier n'éxiste pas encore on laisse lastOrderNumber = 0 
+		} catch (IOException e) {
+			System.err.println("Erreur: " + e.getMessage());
+		}
+		return lastOrderNumber + 1;
+	}
+	
 	public static void saveOrder(List<String> listOrders, String filename) {
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))){
 			
-			writer.write("===Récap des Commandes===");
+			writer.write("===Récap de la commande ===\n\n");
 			
 			for (String order: listOrders) {
 				writer.write(order);
